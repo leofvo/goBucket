@@ -7,10 +7,12 @@ import (
 
 func scan(cmd *cobra.Command, args []string) {
   wordlist := cmd.Flag("wordlist").Value.String()
-  s3.Execute(wordlist)
+  onlyCritical, _ := cmd.Flags().GetBool("only-critical")
+  s3.Execute(wordlist, onlyCritical)
 }
 
 func init() {
+  scanCmd.Flags().BoolP("only-critical", "", false, "Should only search for critical files")
 	scanCmd.Flags().StringP("wordlist", "w", "", "Path of the wordlist to use")
   scanCmd.MarkFlagRequired("wordlist")
   rootCmd.AddCommand(scanCmd)
