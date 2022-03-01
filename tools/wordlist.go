@@ -1,4 +1,4 @@
-package helpers
+package tools
 
 import (
 	"bufio"
@@ -8,6 +8,7 @@ import (
 	"regexp"
 	str "strings"
 )
+
 var s3BucketNamePattern = regexp.MustCompile(`[a-zA-Z0-9\-\.]{3,63}`)
 
 func ExtractBucketName(bucket string) (string, error) {

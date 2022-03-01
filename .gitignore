@@ -15,5 +15,5 @@
 # vendor/
 
 # Developers files
-*.txt
+local
 TODO.md
